@@ -1,0 +1,57 @@
+name: Feature
+description: The app must do something new.
+title: "<app>: <what to add>"
+type: Feature
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Pick every area the change touches.
+      multiple: true
+      options:
+        - auth
+        - infra
+        - ci
+        - data-lake
+        - ui
+        - api
+        - docs
+        - security
+        - email
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - high
+        - normal
+        - low
+      default: 1
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: Who needs this and what it gives them. One or two sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What to build
+      description: Describe the result, not the code. Use a list for more than one part.
+    validations:
+      required: true
+  - type: textarea
+    id: done-when
+    attributes:
+      label: Done when
+      description: Checkboxes. Each one is a thing a person can check.
+      value: |
+        - [ ] 
+    validations:
+      required: true

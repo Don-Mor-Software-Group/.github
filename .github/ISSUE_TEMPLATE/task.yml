@@ -1,0 +1,54 @@
+name: Task
+description: A piece of work that is not a bug and not a new feature.
+title: "<app>: <what to do>"
+type: Task
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      multiple: true
+      options:
+        - auth
+        - infra
+        - ci
+        - data-lake
+        - ui
+        - api
+        - docs
+        - security
+        - email
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - high
+        - normal
+        - low
+      default: 1
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What to do
+      description: Numbered steps. One action per step.
+    validations:
+      required: true
+  - type: textarea
+    id: done-when
+    attributes:
+      label: Done when
+      value: |
+        - [ ] 
+    validations:
+      required: true

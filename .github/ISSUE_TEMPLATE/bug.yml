@@ -1,0 +1,79 @@
+name: Bug
+description: The app does something wrong.
+title: "<app>: <what is wrong>"
+type: Bug
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Pick every area the bug touches.
+      multiple: true
+      options:
+        - auth
+        - infra
+        - ci
+        - data-lake
+        - ui
+        - api
+        - docs
+        - security
+        - email
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - high
+        - normal
+        - low
+      default: 1
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - production
+        - staging
+        - local
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: what-happens
+    attributes:
+      label: What happens
+      description: One or two sentences. Paste the exact error text if there is one.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to see it
+      description: Numbered steps. One action per step.
+      placeholder: |
+        1. Open ...
+        2. Click ...
+        3. See ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What must happen
+    validations:
+      required: true
+  - type: textarea
+    id: done-when
+    attributes:
+      label: Done when
+      description: Checkboxes. The issue closes when each box is checked.
+      value: |
+        - [ ] The steps above give the result in "What must happen".
+        - [ ] A test covers it.
+    validations:
+      required: true

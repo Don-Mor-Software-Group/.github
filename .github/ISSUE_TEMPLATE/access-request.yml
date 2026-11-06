@@ -1,0 +1,59 @@
+name: Access request
+description: An Entra group, an app role, a data grant or a tool permission.
+title: "<app>: <who> needs <what>"
+type: Access Request
+labels: ["area:auth"]
+body:
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - high
+        - normal
+        - low
+      default: 1
+    validations:
+      required: true
+  - type: input
+    id: who
+    attributes:
+      label: Who
+      description: The person, group or app identity. Use the real name.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What access
+      description: The exact group, role, permission or grant. One per line.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+    validations:
+      required: true
+  - type: input
+    id: until
+    attributes:
+      label: Until
+      description: Leave empty for permanent.
+      placeholder: 2026-12-31
+  - type: textarea
+    id: check
+    attributes:
+      label: Check
+      description: How the requester shows that the access works.
+    validations:
+      required: true
+  - type: textarea
+    id: done-when
+    attributes:
+      label: Done when
+      value: |
+        - [ ] The access is granted.
+        - [ ] The check passes.
+    validations:
+      required: true

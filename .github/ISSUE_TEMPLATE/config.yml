@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Not sure which form?
+    url: https://github.com/Don-Mor-Software-Group/org-skills/blob/main/donmor-github-workflow/SKILL.md
+    about: Read the Don-Mor GitHub workflow. One issue, one outcome.

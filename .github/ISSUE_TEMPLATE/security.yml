@@ -1,0 +1,44 @@
+name: Security
+description: A vulnerability, an advisory or a hardening step. Never put a secret value in the issue.
+title: "<app>: <what is at risk>"
+type: Security
+labels: ["area:security", "priority:high"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Pick every other area it touches.
+      multiple: true
+      options:
+        - auth
+        - infra
+        - ci
+        - data-lake
+        - ui
+        - api
+        - docs
+        - email
+  - type: textarea
+    id: risk
+    attributes:
+      label: What is at risk
+      description: What an attacker can do, or what the advisory says. Link the advisory or CVE.
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Fix
+      description: The change that removes the risk. Numbered steps if more than one.
+    validations:
+      required: true
+  - type: textarea
+    id: done-when
+    attributes:
+      label: Done when
+      value: |
+        - [ ] The fix is merged and released.
+        - [ ] The risk no longer applies, and the check that shows it is in a comment.
+    validations:
+      required: true

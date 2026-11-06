@@ -1,0 +1,67 @@
+name: Deployment request
+description: Deploy, promote or release an app. The release owner does the steps.
+title: "<app>: deploy <version> to <environment>"
+type: Deployment Request
+labels: ["area:infra"]
+body:
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - high
+        - normal
+        - low
+      default: 1
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - staging
+        - production
+        - staging then production
+      default: 2
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or tag
+      placeholder: v1.2.0
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: What this release changes for the users. Link the merged PRs.
+    validations:
+      required: true
+  - type: textarea
+    id: values
+    attributes:
+      label: Values
+      description: Every setting that changes. A table with the staging and production value. Names only for secrets, never values.
+      value: |
+        | Item | Staging | Production |
+        |---|---|---|
+        |  |  |  |
+  - type: textarea
+    id: check
+    attributes:
+      label: Check
+      description: Numbered steps that show the deploy worked, with the expected result of each.
+    validations:
+      required: true
+  - type: textarea
+    id: done-when
+    attributes:
+      label: Done when
+      value: |
+        - [ ] Staging: deployed and the check passes.
+        - [ ] Production: deployed and the check passes.
+    validations:
+      required: true
