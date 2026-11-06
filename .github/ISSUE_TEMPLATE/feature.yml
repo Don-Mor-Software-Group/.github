@@ -51,7 +51,8 @@ body:
     attributes:
       label: Done when
       description: Checkboxes. Each one is a thing a person can check.
-      value: |
-        - [ ] 
+      placeholder: |
+        - [ ] A person can ...
+        - [ ] The test ... passes.
     validations:
       required: true
