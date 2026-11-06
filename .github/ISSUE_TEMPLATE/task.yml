@@ -48,7 +48,8 @@ body:
     id: done-when
     attributes:
       label: Done when
-      value: |
-        - [ ] 
+      placeholder: |
+        - [ ] A person can ...
+        - [ ] The test ... passes.
     validations:
       required: true
